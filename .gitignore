@@ -37,3 +37,6 @@ Thumbs.db
 
 # SQLite databases (if using SQLite)
 *.sqlite3
+
+# Cache files
+.cache/

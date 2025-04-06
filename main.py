@@ -1,31 +1,31 @@
 from spotify_utils import authenticate_spotify, get_liked_songs, create_playlist, add_songs_to_playlist
+import time
 
 def main():
-    # 2. USER AUTHENTICATION
-    # Call authenticate_spotify to authenticate the user and get the Spotify client (sp)
+    print("Welcome to Spotlist!")
+    print("This program will create a playlist from your liked songs on Spotify.\n")
+    print("Make sure you have your Spotify Developer credentials ready.")
+    print("If you don't have them, visit https://developer.spotify.com/dashboard/ to create an app.\n")
+    time.sleep(5)
+
     sp = authenticate_spotify()
-    
-    # 3. GET LIKED SONGS
-    # Call get_liked_songs to fetch all the liked songs from the user's account
+    print("Authentication successful!\n")
+    time.sleep(2)
+
     liked_songs = get_liked_songs(sp)
+    if not liked_songs:
+        print("No liked songs found in your Spotify account.")
+        time.sleep(2)
+        return
     
-    # 4. ASK FOR NEW PLAYLIST NAME
-    # Ask the user to input the name of the new playlist they want to create
     playlist_name = input("Enter the name of the new playlist: ")
-
-    # 5. CREATE PLAYLIST
-    # Call create_playlist to create a new playlist with the given name
     playlist_id = create_playlist(sp, playlist_name)
-    
-    # 6. ADD SONGS TO PLAYLIST
-    # Call add_songs_to_playlist to add the liked songs to the newly created playlist
+    print(f"'{playlist_name}' created successfully.\n")
+    time.sleep(3)
+     
     add_songs_to_playlist(sp, playlist_id, liked_songs)
-    
-    # 7. CONFIRM SUCCESS
-    # Print a success message once the playlist is created and songs are added
-    print(f"Your new playlist '{playlist_name}' has been created and populated with your liked songs!")
+    print(f"Liked songs have been added to '{playlist_name}'.")
+    time.sleep(3)
 
-# 8. RUN THE MAIN FUNCTION
-# Ensure the main function runs when the script is executed
 if __name__ == "__main__":
     main()
