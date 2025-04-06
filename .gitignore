@@ -1,0 +1,39 @@
+# Ignore virtual environment folder
+venv/
+
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Sublime Text project/workspace files
+*.sublime-workspace
+*.sublime-project
+
+# Log files
+*.log
+
+# Backup files from editors (Emacs, etc.)
+*~
+
+# Environment variable files (if used)
+*.env
+
+# Backup files (editor or other tools may generate)
+*.bak
+
+# Swap files (Vim)
+*.swp
+
+# SQLite databases (if using SQLite)
+*.sqlite3
